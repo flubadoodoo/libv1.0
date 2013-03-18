@@ -25,12 +25,16 @@ public class Main extends StateBasedGame {
 	/** The Constant DISPLAY_TARGET_FRAME_RATE. */
 	private static final int DISPLAY_TARGET_FRAME_RATE; // the frame rate of the program
 	
+	/** The Constant LOGIN_SCREEN_VIEW_CONTROLLER. */
+	private static final int LOGIN_SCREEN_VIEW_CONTROLLER_ID; // the ID for the LoginScreenViewController
+	
 	static {
 		// the screen has an aspect ratio of 1280/720, which is about 1.67 : 1
 		DISPLAY_WIDTH = 1000; // 1000 pixels wide
 		DISPLAY_HEIGHT = 562; // 562 pixels in height
 		DISPLAY_IS_FULLSCREEN = false; // run in a window
 		DISPLAY_TARGET_FRAME_RATE = 60; // go through program loop 60 times a second
+		LOGIN_SCREEN_VIEW_CONTROLLER_ID = 0;
 	}
 	
 	/**
@@ -77,7 +81,7 @@ public class Main extends StateBasedGame {
 	 *             if a state could not be initialized properly
 	 */
 	public void initStatesList(GameContainer container) throws SlickException {
-		this.addState(new LoginScreenViewController());
+		this.addState(new LoginScreenViewController(LOGIN_SCREEN_VIEW_CONTROLLER_ID));
 	}
 	
 	/**
@@ -114,6 +118,15 @@ public class Main extends StateBasedGame {
 	 */
 	public static int getDisplayTargetFrameRate() {
 		return DISPLAY_TARGET_FRAME_RATE;
+	}
+	
+	/**
+	 * Gets the login screen view controller id.
+	 * 
+	 * @return the loginScreenViewControllerId
+	 */
+	public static int getLoginScreenViewControllerId() {
+		return LOGIN_SCREEN_VIEW_CONTROLLER_ID;
 	}
 	
 }
