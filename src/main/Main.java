@@ -99,7 +99,7 @@ public class Main extends StateBasedGame {
 	}
 	
 	/**
-	 * Checks if is display is fullscreen.
+	 * Checks if is display is full screen.
 	 * 
 	 * @return the displayIsFullscreen
 	 */
