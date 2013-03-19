@@ -30,8 +30,17 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	/** The Constant BANNER_HEIGHT. */
 	private static final int BANNER_HEIGHT;
 	
+	/** The Constant BANNER_BORDER_WIDTH. */
+	private static final int BANNER_BORDER_WIDTH;
+	
+	/** The Constant BANNER_BACK_COLOR. */
+	private static final Color BANNER_BACK_COLOR;
+	
+	/** The Constant BANNER_TITLE_COLOR. */
+	private static final Color BANNER_TITLE_COLOR;
+	
 	/** The title font. */
-	private static UnicodeFont titleFont;
+	private static final UnicodeFont titleFont;
 	
 	/** The Constant titleFontSize. */
 	private static final int titleFontSize;
@@ -42,11 +51,15 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	static {
 		BANNER_WIDTH = Main.getDisplayWidth();
 		BANNER_HEIGHT = 100; // set the banner's height to 100 pixels
+		BANNER_BORDER_WIDTH = 3;
+		
+		BANNER_BACK_COLOR = new Color(AbstractViewController.getColorSchemeBlue());
+		BANNER_TITLE_COLOR = new Color(AbstractViewController.getColorSchemeCream());
 		
 		// initialize the title font
 		titleFontSize = 65;
 		titleFont = new UnicodeFont(new Font("/ui/text/font/Black.ttf", Font.PLAIN, titleFontSize));
-		titleFont.getEffects().add(new ColorEffect(new java.awt.Color(AbstractViewController.getColorSchemeCream()[0], AbstractViewController.getColorSchemeCream()[1], AbstractViewController.getColorSchemeCream()[2])));
+		titleFont.getEffects().add(new ColorEffect(new java.awt.Color(getBannerTitleColor().getRed(), getBannerTitleColor().getGreen(), getBannerTitleColor().getBlue())));
 		titleFont.addAsciiGlyphs();
 		try {
 			titleFont.loadGlyphs();
@@ -93,7 +106,7 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	 *            the graphics context
 	 */
 	private void drawBackground(Graphics g) {
-		g.setColor(new Color(AbstractViewController.getColorSchemeBlue()[0], AbstractViewController.getColorSchemeBlue()[1], AbstractViewController.getColorSchemeBlue()[2]));
+		g.setColor(getBannerBackColor());
 		g.fill(getBounds());
 	}
 	
@@ -125,16 +138,6 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	}
 	
 	/**
-	 * Sets the title font.
-	 * 
-	 * @param titleFont
-	 *            the titleFont to set
-	 */
-	public static void setTitleFont(UnicodeFont titleFont) {
-		AbstractUIBanner.titleFont = titleFont;
-	}
-	
-	/**
 	 * Gets the title.
 	 * 
 	 * @return the title
@@ -151,6 +154,51 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	/**
+	 * Gets the banner border width.
+	 * 
+	 * @return the banner border width
+	 */
+	public static int getBannerBorderWidth() {
+		return BANNER_BORDER_WIDTH;
+	}
+	
+	/**
+	 * Gets the banner back color.
+	 * 
+	 * @return the bannerBackColor
+	 */
+	public static Color getBannerBackColor() {
+		return BANNER_BACK_COLOR;
+	}
+	
+	/**
+	 * Gets the banner title color.
+	 * 
+	 * @return the bannerTitleColor
+	 */
+	public static Color getBannerTitleColor() {
+		return BANNER_TITLE_COLOR;
+	}
+	
+	/**
+	 * Gets the titlefont.
+	 * 
+	 * @return the titlefont
+	 */
+	public static UnicodeFont getTitlefont() {
+		return titleFont;
+	}
+	
+	/**
+	 * Gets the titlefontsize.
+	 * 
+	 * @return the titlefontsize
+	 */
+	public static int getTitlefontsize() {
+		return titleFontSize;
 	}
 	
 }

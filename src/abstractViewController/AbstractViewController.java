@@ -1,5 +1,6 @@
 package abstractViewController;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -15,16 +16,16 @@ import ui.banner.UIBanner;
 public abstract class AbstractViewController extends BasicGameState {
 	
 	/** The color scheme blue. */
-	private static final int[] COLOR_SCHEME_BLACK;
+	private static final Color COLOR_SCHEME_BLACK;
 	
 	/** The Constant COLOR_SCHEME_BLUE. */
-	private static final int[] COLOR_SCHEME_BLUE;
+	private static final Color COLOR_SCHEME_BLUE;
 	
 	/** The Constant COLOR_SCHEME_CREAM. */
-	private static final int[] COLOR_SCHEME_CREAM;
+	private static final Color COLOR_SCHEME_CREAM;
 	
 	/** The Constant COLOR_SCHEME_BROWN. */
-	private static final int[] COLOR_SCHEME_BROWN;
+	private static final Color COLOR_SCHEME_BROWN;
 	
 	/** The ID associated with this view controller. */
 	private int ID;
@@ -34,10 +35,10 @@ public abstract class AbstractViewController extends BasicGameState {
 	private UIBanner banner;
 	
 	static {
-		COLOR_SCHEME_BLACK = new int[] { 31, 18, 9 };
-		COLOR_SCHEME_BLUE = new int[] { 0, 51, 102 };
-		COLOR_SCHEME_CREAM = new int[] { 255, 248, 220 };
-		COLOR_SCHEME_BROWN = new int[] { 131, 76, 36 };
+		COLOR_SCHEME_BLACK = new Color(31, 18, 9);
+		COLOR_SCHEME_BLUE = new Color(0, 51, 102);
+		COLOR_SCHEME_CREAM = new Color(255, 248, 220);
+		COLOR_SCHEME_BROWN = new Color(131, 76, 36);
 	}
 	
 	/**
@@ -152,21 +153,21 @@ public abstract class AbstractViewController extends BasicGameState {
 	}
 	
 	/**
-	 * Gets the color scheme blue.
-	 * 
-	 * @return the colorSchemeBlue
-	 */
-	public static int[] getColorSchemeBlue() {
-		return COLOR_SCHEME_BLUE;
-	}
-	
-	/**
 	 * Gets the color scheme black.
 	 * 
 	 * @return the colorSchemeBlack
 	 */
-	public static int[] getColorSchemeBlack() {
+	public static Color getColorSchemeBlack() {
 		return COLOR_SCHEME_BLACK;
+	}
+	
+	/**
+	 * Gets the color scheme blue.
+	 * 
+	 * @return the colorSchemeBlue
+	 */
+	public static Color getColorSchemeBlue() {
+		return COLOR_SCHEME_BLUE;
 	}
 	
 	/**
@@ -174,7 +175,7 @@ public abstract class AbstractViewController extends BasicGameState {
 	 * 
 	 * @return the colorSchemeCream
 	 */
-	public static int[] getColorSchemeCream() {
+	public static Color getColorSchemeCream() {
 		return COLOR_SCHEME_CREAM;
 	}
 	
@@ -183,7 +184,7 @@ public abstract class AbstractViewController extends BasicGameState {
 	 * 
 	 * @return the colorSchemeBrown
 	 */
-	public static int[] getColorSchemeBrown() {
+	public static Color getColorSchemeBrown() {
 		return COLOR_SCHEME_BROWN;
 	}
 	
