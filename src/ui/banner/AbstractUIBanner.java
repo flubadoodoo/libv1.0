@@ -12,6 +12,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
+import org.newdawn.slick.geom.Rectangle;
 
 import ui.abstractUI.AbstractUI;
 import abstractViewController.AbstractViewController;
@@ -30,8 +31,12 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	/** The Constant BANNER_HEIGHT. */
 	private static final int BANNER_HEIGHT;
 	
-	/** The Constant BANNER_BORDER_WIDTH. */
-	private static final int BANNER_BORDER_WIDTH;
+	private static final int BANNER_BORDER_HEIGHT;
+	
+	private static final Rectangle BANNER_BORDER_SHAPE;
+	
+	/** The Constant BANNER_BORDER_COLOR. */
+	private static final Color BANNER_BORDER_COLOR;
 	
 	/** The Constant BANNER_BACK_COLOR. */
 	private static final Color BANNER_BACK_COLOR;
@@ -51,8 +56,10 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	static {
 		BANNER_WIDTH = Main.getDisplayWidth();
 		BANNER_HEIGHT = 100; // set the banner's height to 100 pixels
-		BANNER_BORDER_WIDTH = 3;
+		BANNER_BORDER_HEIGHT = 3;
+		BANNER_BORDER_SHAPE = new Rectangle(0, getBannerHeight() - getBannerBorderHeight(), getBannerWidth(), getBannerBorderHeight());
 		
+		BANNER_BORDER_COLOR = new Color(AbstractViewController.getColorSchemeCream());
 		BANNER_BACK_COLOR = new Color(AbstractViewController.getColorSchemeBlue());
 		BANNER_TITLE_COLOR = new Color(AbstractViewController.getColorSchemeCream());
 		
@@ -85,8 +92,20 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	public void drawView(Graphics g) {
 		super.prepareContextForDrawing(g);
 		drawBackground(g);
+		drawBorder(g);
 		drawTitle(g);
 		super.restoreContext(g);
+	}
+	
+	/**
+	 * Draw border.
+	 * 
+	 * @param g
+	 *            the graphics context
+	 */
+	private void drawBorder(Graphics g) {
+		g.setColor(getBannerBorderColor());
+		g.fill(getBannerBorderShape());
 	}
 	
 	/**
@@ -157,15 +176,6 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	}
 	
 	/**
-	 * Gets the banner border width.
-	 * 
-	 * @return the banner border width
-	 */
-	public static int getBannerBorderWidth() {
-		return BANNER_BORDER_WIDTH;
-	}
-	
-	/**
 	 * Gets the banner back color.
 	 * 
 	 * @return the bannerBackColor
@@ -199,6 +209,27 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	 */
 	public static int getTitlefontsize() {
 		return titleFontSize;
+	}
+	
+	/**
+	 * @return the bannerBorderHeight
+	 */
+	public static int getBannerBorderHeight() {
+		return BANNER_BORDER_HEIGHT;
+	}
+	
+	/**
+	 * @return the bannerBorderShape
+	 */
+	public static Rectangle getBannerBorderShape() {
+		return BANNER_BORDER_SHAPE;
+	}
+	
+	/**
+	 * @return the bannerBorderColor
+	 */
+	public static Color getBannerBorderColor() {
+		return BANNER_BORDER_COLOR;
 	}
 	
 }
