@@ -93,6 +93,7 @@ public abstract class AbstractViewController extends BasicGameState {
 	 *             the slick exception
 	 */
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
+		g.setBackground(getColorSchemeCream());
 		banner.drawView(g);
 	}
 	

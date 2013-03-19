@@ -56,10 +56,10 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	static {
 		BANNER_WIDTH = Main.getDisplayWidth();
 		BANNER_HEIGHT = 100; // set the banner's height to 100 pixels
-		BANNER_BORDER_HEIGHT = 3;
+		BANNER_BORDER_HEIGHT = 5;
 		BANNER_BORDER_SHAPE = new Rectangle(0, getBannerHeight() - getBannerBorderHeight(), getBannerWidth(), getBannerBorderHeight());
 		
-		BANNER_BORDER_COLOR = new Color(AbstractViewController.getColorSchemeCream());
+		BANNER_BORDER_COLOR = new Color(AbstractViewController.getColorSchemeBrown());
 		BANNER_BACK_COLOR = new Color(AbstractViewController.getColorSchemeBlue());
 		BANNER_TITLE_COLOR = new Color(AbstractViewController.getColorSchemeCream());
 		
@@ -115,7 +115,7 @@ public abstract class AbstractUIBanner extends AbstractUI {
 	 *            the g
 	 */
 	private void drawTitle(Graphics g) {
-		getTitleFont().drawString(10, 10, "Library");
+		getTitleFont().drawString(13, 7, "Library");
 	}
 	
 	/**
