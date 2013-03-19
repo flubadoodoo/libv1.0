@@ -2,6 +2,7 @@ package abstractViewController;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -60,7 +61,22 @@ public abstract class AbstractViewController extends BasicGameState {
 	 *             the slick exception
 	 */
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
-		banner = new UIBanner();
+		// initialize the UI elements
+		banner = new UIBanner("Library");
+	}
+	
+	/**
+	 * Entering this view controller.
+	 * 
+	 * @param container
+	 *            the container
+	 * @param game
+	 *            the game
+	 * @throws SlickException
+	 *             the slick exception
+	 */
+	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
+		super.enter(container, game);
 	}
 	
 	/**
@@ -76,7 +92,7 @@ public abstract class AbstractViewController extends BasicGameState {
 	 *             the slick exception
 	 */
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-		
+		banner.drawView(g);
 	}
 	
 	/**
@@ -91,7 +107,11 @@ public abstract class AbstractViewController extends BasicGameState {
 	 * @throws SlickException
 	 *             the slick exception
 	 */
-	abstract public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException;
+	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
+		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+			System.exit(0);
+		}
+	}
 	
 	/**
 	 * Gets the id.

@@ -34,7 +34,7 @@ public class LoginScreenViewController extends AbstractViewController implements
 	 *             if the view controller could not initialize properly
 	 */
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
-		
+		super.init(container, game);
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class LoginScreenViewController extends AbstractViewController implements
 	 *             if the view controller could not render properly
 	 */
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-		
+		super.render(container, game, g);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class LoginScreenViewController extends AbstractViewController implements
 	 *             the view controller could not update properly
 	 */
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
-		
+		super.update(container, game, delta);
 	}
 	
 }

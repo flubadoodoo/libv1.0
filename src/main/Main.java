@@ -56,6 +56,8 @@ public class Main extends StateBasedGame {
 		gameContainer.setDisplayMode(DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_IS_FULLSCREEN);
 		// set the frame rate
 		gameContainer.setTargetFrameRate(DISPLAY_TARGET_FRAME_RATE);
+		// don't show the frame rate counter
+		gameContainer.setShowFPS(false);
 		// set verbose to false to the program doesn't print unnecessary info to the console
 		Log.setVerbose(false);
 		// start the program

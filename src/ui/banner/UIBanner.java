@@ -3,34 +3,22 @@
  */
 package ui.banner;
 
-import main.Main;
-
-import org.newdawn.slick.Graphics;
-
-import ui.abstractUI.AbstractUI;
-
 /**
  * The Class UIBanner.
  * 
  * @author hamdan
  */
-public class UIBanner extends AbstractUI {
+public class UIBanner extends AbstractUIBanner {
 	
 	/**
-	 * Instantiates a new uI banner.
-	 */
-	public UIBanner() {
-		super(0, 0, Main.getDisplayWidth(), 150);
-	}
-	
-	/**
-	 * Draw the banner.
+	 * Instantiates a new UI banner.
 	 * 
-	 * @param g
-	 *            the graphics context
+	 * @param title
+	 *            the title
 	 */
-	public void drawView(Graphics g) {
-		
+	public UIBanner(String title) {
+		super();
+		setTitle(title);
 	}
 	
 }

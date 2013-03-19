@@ -68,4 +68,34 @@ public abstract class AbstractUI {
 		g.popTransform();
 	}
 	
+	/**
+	 * @return the frame
+	 */
+	public Rectangle getFrame() {
+		return frame;
+	}
+	
+	/**
+	 * @param frame
+	 *            the frame to set
+	 */
+	public void setFrame(Rectangle frame) {
+		this.frame = frame;
+	}
+	
+	/**
+	 * @return the bounds
+	 */
+	public Rectangle getBounds() {
+		return bounds;
+	}
+	
+	/**
+	 * @param bounds
+	 *            the bounds to set
+	 */
+	public void setBounds(Rectangle bounds) {
+		this.bounds = bounds;
+	}
+	
 }
